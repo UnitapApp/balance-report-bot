@@ -10,17 +10,17 @@ def set_linked_and_pinned():
     data = get_all_chain_balances()
     text = "Chain Balances:\n"
     for chain in data:
-        t = f"""Chain: {chain["chainName"]} 
+        t = f"""Chain: {str(chain["chainName"]).replace('-', ' ')} 
 Type: {chain["chainType"]}
 
 Contract Address: `{chain["blockScanAddress"].split("/")[-1]}`
 
 Wallet Address: `{chain["wallet"]}`"""
         response = send_message(str(t))
-        try:
-            message_id = response["result"]["message_id"]
-        except KeyError:
-            print(response)
+        # try:
+        message_id = response["result"]["message_id"]
+        # except KeyError:
+        #     print(response)
         links[chain["chainName"]
               ] = f"https://t.me/unitapchainbalances/{message_id}"
 
