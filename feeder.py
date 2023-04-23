@@ -1,3 +1,4 @@
+import json
 import requests
 
 
@@ -17,5 +18,9 @@ def get_all_chain_balances():
     chains = get_chain_list()
     balances = []
     for chain in chains:
-        balances.append(get_chain_balance(chain['pk']))
+        try:
+            balances.append(get_chain_balance(chain['pk']))
+        except json.decoder.JSONDecodeError:
+            print(f"error for chain {chain['pk']}")
+            break
     return balances
