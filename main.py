@@ -10,7 +10,7 @@ def set_linked_and_pinned():
     data = get_all_chain_balances()
     text = "Chain Balances:\n"
     for chain in data:
-        t = f"""Chain: {str(chain["chainName"]).replace('-', ' ').replace("(", "").replace(")", "")} 
+        t = f"""Chain: {str(chain["chainName"]).replace('-', ' ').replace("(", "").replace(")", "")}
 Type: {chain["chainType"]}
 
 Contract Address: `{chain["blockScanAddress"].split("/")[-1]}`
@@ -49,7 +49,6 @@ def report():
     data = get_all_chain_balances()
     t = "Chains:\n\n"
     for chain in data:
-        print(chain["needsFunding"])
         # circle color
         if chain["needsFunding"] is True:
             t += red_circle
@@ -78,16 +77,16 @@ def report():
         t += "\n"
 
     # print(t)
-    r = send_message_plain(str(t))
+    r = send_message_plain(str(t).replace("(formerly", "").replace(")", ""))
     print(r)
 
 
 # set_linked_and_pinned()
-report()
+# report()
 
 # schedule the function to run every 6 hours
 # schedule.every(6).hours.do()
 
-# while True:
-#     schedule.run_pending()
-#     time.sleep(69)
+while True:
+    report
+    time.sleep(3600*6)
