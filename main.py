@@ -32,11 +32,11 @@ Wallet Address: `{chain["wallet"]}`"""
             p += "\u25AA"
         else:
             p += "\u25AB"
-        p += f"""[{chain["chainName"]}]({links[chain["chainName"]]})\n"""
+        p += f"""[{chain["chainName"].replace('-', ' ').replace("(", "").replace(")", "")}]({links[chain["chainName"]]})\n"""
         c += 1
 
     resp = send_message(p)
-    pin_message(resp["result"]["message_id"])
+    # pin_message(resp["result"]["message_id"])
 
 
 green_circle = "\U0001F7E2"
