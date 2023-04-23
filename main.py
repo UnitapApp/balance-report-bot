@@ -65,7 +65,7 @@ def report():
         t += " "*4
 
         # contract balance
-        t += f"""C: {str(chain['contractBalance'] / 10**18)[:4]} {chain['symbol']} {tick if chain["hasEnoughFunds"] is True else cross}"""
+        t += f"""C: {str(chain['contractBalance'] / 10**int(chain["decimals"]))[:5]} {chain['symbol']} {tick if chain["hasEnoughFunds"] is True else cross}"""
 
         # 4 spaces
         t += " "*4
