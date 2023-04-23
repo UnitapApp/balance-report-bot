@@ -4,7 +4,6 @@ import requests
 def get_chain_list():
     url = 'https://stage.unitap.app/api/v1/chain/small-list/'
     data = requests.get(url).json()
-    print("chain list: ", data)
     return data
 
 
