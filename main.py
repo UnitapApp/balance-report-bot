@@ -71,7 +71,7 @@ def report():
         t += " "*4
 
         # wallet balance
-        t += f"""W: {str(float(format(chain['walletBalance']), ".6f") / 10**int(chain["decimals"]))[:5]} {chain['symbol']} {tick if chain["hasEnoughFees"] is True else cross}"""
+        t += f"""W: {str(float(format(chain['walletBalance'], ".6f")) / 10**int(chain["decimals"]))[:5]} {chain['symbol']} {tick if chain["hasEnoughFees"] is True else cross}"""
 
         # \n
         t += "\n"
