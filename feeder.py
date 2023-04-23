@@ -11,7 +11,6 @@ def get_chain_list():
 def get_chain_balance(chain_id):
     url = f'https://stage.unitap.app/api/v1/chain/{chain_id}/balance/'
     data = requests.get(url).json()
-    print(f"chain balance for chain {chain_id}: ", data)
     return data
 
 

@@ -7,6 +7,6 @@ BASE_URL = f"https://api.telegram.org/bot{API_TOKEN}"
 
 def send_message(text):
     url = f"{BASE_URL}/sendMessage"
-    payload = {"chat_id": CHANNEL_ID, "text": text}
+    payload = {"chat_id": CHANNEL_ID, "text": text, "parse_mode": "MarkdownV2"}
     response = requests.post(url, data=payload)
     return response.json()
