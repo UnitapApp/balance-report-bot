@@ -78,9 +78,8 @@ def report():
     print(r)
 
 
-# set_linked_and_pinned()
-report()
-send_message("asgasfgasgfdas")
+set_linked_and_pinned()
+# report()
 
 # schedule the function to run every 6 hours
 # schedule.every(6).hours.do()

@@ -2,13 +2,13 @@ import requests
 
 
 def get_chain_list():
-    url = 'https://stage.unitap.app/api/v1/chain/small-list/'
+    url = 'https://api.unitap.app/api/v1/chain/small-list/'
     data = requests.get(url).json()
     return data
 
 
 def get_chain_balance(chain_id):
-    url = f'https://stage.unitap.app/api/v1/chain/{chain_id}/balance/'
+    url = f'https://api.unitap.app/api/v1/chain/{chain_id}/balance/'
     data = requests.get(url).json()
     return data
 
