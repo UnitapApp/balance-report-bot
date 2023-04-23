@@ -1,7 +1,7 @@
 import time
 import schedule
 from feeder import get_all_chain_balances
-from bot import send_message, pin_message
+from bot import send_message, pin_message, send_message_plain
 
 links = {}
 
@@ -69,7 +69,7 @@ def report():
         # wallet balance
         t += f"""W: {str(chain['walletBalance'] / 10**18)[:4]} {chain['symbol']} {tick if chain["hasEnoughFees"] == "true" else cross}"""
     # print(t)
-    r = send_message(str(t))
+    r = send_message_plain(str(t))
     print(r)
 
 

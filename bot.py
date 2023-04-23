@@ -13,6 +13,14 @@ def send_message(text):
     return response.json()
 
 
+def send_message_plain(text):
+    url = f"{BASE_URL}/sendMessage"
+    payload = {"chat_id": CHANNEL_ID, "text": text,
+               "disable_web_page_preview": True}
+    response = requests.post(url, data=payload)
+    return response.json()
+
+
 def pin_message(message_id):
     url = f"{BASE_URL}/pinChatMessage"
     payload = {"chat_id": CHANNEL_ID, "message_id": message_id}
