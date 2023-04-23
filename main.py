@@ -10,7 +10,7 @@ def set_linked_and_pinned():
     data = get_all_chain_balances()
     text = "Chain Balances:\n"
     for chain in data:
-        t = f"""Chain: {str(chain["chainName"]).replace('-', ' ')} 
+        t = f"""Chain: {str(chain["chainName"]).replace('-', ' ').replace("(", "").replace(")", "")} 
 Type: {chain["chainType"]}
 
 Contract Address: `{chain["blockScanAddress"].split("/")[-1]}`
