@@ -65,13 +65,13 @@ def report():
         t += " "*4
 
         # contract balance
-        t += f"""C: {str(float(format(chain['contractBalance'], ".6f")) / 10**int(chain["decimals"]))[:5]} {chain['symbol']} {tick if chain["hasEnoughFunds"] is True else cross}"""
+        t += f"""C: {str(format(chain['contractBalance']) / 10**int(chain["decimals"]), ".6f")[:5]} {chain['symbol']} {tick if chain["hasEnoughFunds"] is True else cross}"""
 
         # 4 spaces
         t += " "*4
 
         # wallet balance
-        t += f"""W: {str(float(format(chain['walletBalance'], ".6f")) / 10**int(chain["decimals"]))[:5]} {chain['symbol']} {tick if chain["hasEnoughFees"] is True else cross}"""
+        t += f"""W: {str(format(chain['walletBalance'] / 10**int(chain["decimals"]), ".6f"))[:5]} {chain['symbol']} {tick if chain["hasEnoughFees"] is True else cross}"""
 
         # \n
         t += "\n"
