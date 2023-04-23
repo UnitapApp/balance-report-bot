@@ -43,7 +43,7 @@ cross = "\u274C"
 
 def report():
     data = get_all_chain_balances()
-    t = ""
+    t = "Chains:\n\n"
     for chain in data:
         # circle color
         if chain["needsFunding"] == "true":
