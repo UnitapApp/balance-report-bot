@@ -45,6 +45,7 @@ def report():
     data = get_all_chain_balances()
     t = "Chains:\n\n"
     for chain in data:
+        print(chain["needsFunding"])
         # circle color
         if chain["needsFunding"] == "true":
             t += red_circle
