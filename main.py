@@ -17,7 +17,10 @@ Contract Address: `{chain["blockScanAddress"].split("/")[-1]}`
 
 Wallet Address: `{chain["wallet"]}`"""
         response = send_message(str(t))
-        message_id = response["result"]["message_id"]
+        try:
+            message_id = response["result"]["message_id"]
+        except KeyError:
+            print(response)
         links[chain["chainName"]
               ] = f"https://t.me/unitapchainbalances/{message_id}"
 
