@@ -6,7 +6,7 @@ from bot import send_message
 links = {}
 
 
-def report():
+def set_linked_and_pinned():
     data = get_all_chain_balances()
     text = "Chain Balances:\n"
     for chain in data:
@@ -20,11 +20,21 @@ Wallet Address: `{chain["wallet"]}`"""
         message_id = response["result"]["message_id"]
         links[chain["chainName"]
               ] = f"https://t.me/unitapchainbalances/{message_id}"
-        
-        print(links)
+
+    c = 0
+    p = "Gas Tap Chains:\n\n"
+    for chain in data:
+        if c % 2 == 0:
+            p += "\u25AA"
+        else:
+            p += "\u25AB"
+        p += f"""[{chain["chainName"]}]({links[chain["chainName"]]})\n"""
+    
+    resp = send_message(p)
+    
 
 
-report()
+set_linked_and_pinned()
 
 # schedule the function to run every 6 hours
 # schedule.every(6).hours.do()
