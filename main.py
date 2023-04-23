@@ -68,6 +68,10 @@ def report():
 
         # wallet balance
         t += f"""W: {str(chain['walletBalance'] / 10**18)[:4]} {chain['symbol']} {tick if chain["hasEnoughFees"] == "true" else cross}"""
+
+        # \n
+        t += "\n"
+
     # print(t)
     r = send_message_plain(str(t))
     print(r)
