@@ -47,9 +47,9 @@ def report():
     for chain in data:
         print(chain["needsFunding"])
         # circle color
-        if chain["needsFunding"] == "true":
+        if chain["needsFunding"] is True:
             t += red_circle
-        elif chain["needsFunding"] == "false":
+        elif chain["needsFunding"] is False:
             t += green_circle
 
         # space
@@ -62,13 +62,13 @@ def report():
         t += " "*4
 
         # contract balance
-        t += f"""C: {str(chain['contractBalance'] / 10**18)[:4]} {chain['symbol']} {tick if chain["hasEnoughFunds"] == "true" else cross}"""
+        t += f"""C: {str(chain['contractBalance'] / 10**18)[:4]} {chain['symbol']} {tick if chain["hasEnoughFunds"] is True else cross}"""
 
         # 4 spaces
         t += " "*4
 
         # wallet balance
-        t += f"""W: {str(chain['walletBalance'] / 10**18)[:4]} {chain['symbol']} {tick if chain["hasEnoughFees"] == "true" else cross}"""
+        t += f"""W: {str(chain['walletBalance'] / 10**18)[:4]} {chain['symbol']} {tick if chain["hasEnoughFees"] is True else cross}"""
 
         # \n
         t += "\n"
