@@ -78,7 +78,7 @@ def report():
 
     # print(t)
     r = send_message_plain(str(t).replace("(formerly", "").replace(")", ""))
-    print(r)
+    # print(r)
 
 
 # set_linked_and_pinned()
@@ -88,5 +88,5 @@ def report():
 # schedule.every(6).hours.do()
 
 while True:
-    report
+    report()
     time.sleep(3600*6)
