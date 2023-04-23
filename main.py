@@ -1,7 +1,7 @@
 import time
 import schedule
 from feeder import get_all_chain_balances
-from bot import send_message
+from bot import send_message, pin_message
 
 links = {}
 
@@ -29,9 +29,10 @@ Wallet Address: `{chain["wallet"]}`"""
         else:
             p += "\u25AB"
         p += f"""[{chain["chainName"]}]({links[chain["chainName"]]})\n"""
-    
+        c += 1
+
     resp = send_message(p)
-    
+    pin_message(resp["result"]["message_id"])
 
 
 set_linked_and_pinned()
