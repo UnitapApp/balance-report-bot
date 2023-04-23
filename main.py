@@ -69,6 +69,8 @@ def report():
         # wallet balance
         t += f"""W: {str(chain['walletBalance'] / 10**18)[:4]} {chain['symbol']} {tick if chain["hasEnoughFees"] == "true" else cross}"""
 
+    send_message(t)
+
 
 # set_linked_and_pinned()
 report()
