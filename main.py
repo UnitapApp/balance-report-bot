@@ -89,4 +89,4 @@ def report():
 
 while True:
     report()
-    time.sleep(3600*6)
+    time.sleep(3600*2)
