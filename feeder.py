@@ -22,5 +22,4 @@ def get_all_chain_balances():
             balances.append(get_chain_balance(chain['pk']))
         except json.decoder.JSONDecodeError:
             print(f"error for chain {chain['pk']}")
-            break
     return balances
